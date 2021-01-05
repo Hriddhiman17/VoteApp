@@ -3,6 +3,12 @@ import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native'
 import Header from '../components/AppHeader';
 
 export default class Welcome extends Component {
+  constructor(){
+    super();
+    this.state = {
+      phone : '',
+    }
+  }
   render() {
     return (
       <View>
@@ -23,6 +29,19 @@ export default class Welcome extends Component {
         </TouchableOpacity>
       </View>
     );
+    if(this.state.phone.length === 10){
+      return(
+        <View>
+          <Text>hsssssssssssssssssss</Text>
+        </View>
+      )
+    }else{
+      return(
+        <View>
+          <Text>ssssssssssss</Text>
+        </View>
+      )
+    }
   }
 }
 const styles = StyleSheet.create({
