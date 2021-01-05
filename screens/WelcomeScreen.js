@@ -9,21 +9,21 @@ export default class Welcome extends Component {
       phone : '',
     }
   }
-  showCardNoInput(){
-    if(this.state.phone.length === 10){
-      return(
-        <View>
-          <Text>hsssssssssssssssssss</Text>
-        </View>
-      )
-    }else{
-      return(
-        <View>
-          <Text>ssssssssssss</Text>
-        </View>
-      )
-    }
-  }
+  // showCardNoInput(){
+  //   if(this.state.phone.length === 10){
+  //     return(
+  //       <View>
+  //         <Text>hsssssssssssssssssss</Text>
+  //       </View>
+  //     )
+  //   }else{
+  //     return(
+  //       <View>
+  //         <Text>ssssssssssss</Text>
+  //       </View>
+  //     )
+  //   }
+  // }
   render() {
     return (
       <View>
@@ -39,9 +39,10 @@ export default class Welcome extends Component {
               })
             }
         />
+        <Text></Text>
         <TouchableOpacity 
             style = {styles.submitButton}
-            onPress = {()=> {this.showCardNoInput}}>
+            onPress = {}>
             <Text style = {{fontSize:22}}>Submit</Text>
         </TouchableOpacity>
       </View>
