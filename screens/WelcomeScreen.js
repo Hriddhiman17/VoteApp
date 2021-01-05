@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import Header from '../components/AppHeader';
-import db from '../config';
+// import db from '../config';
 
 export default class Welcome extends Component {
   constructor(){
@@ -11,20 +11,20 @@ export default class Welcome extends Component {
       card: '',
     }
   }
-  createAProfile(){
-    db.collection("voters").doc(this.state.phone).set({
-      'Phone': this.state.phone,
-    })
-    db.collection("voters").doc(this.state.card).set({
-      'CardNumber': this.state.card,
-    })
-  }
+  // createAProfile(){
+  //   db.collection("voters").doc(this.state.phone).set({
+  //     'Phone': this.state.phone,
+  //   })
+  //   db.collection("voters").doc(this.state.card).set({
+  //     'CardNumber': this.state.card,
+  //   })
+  // }
   render() {
     return (
-      <View>
+      <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
         <Header/>
         <Text style={styles.text}>Welcome to the Vote From Home App. This App would help to make your vote easy, safe, and from home.</Text>
-        <Text>Please Enter your Name here-</Text>
+        <Text style={styles.text}>Enter your Name here-</Text>
         <TextInput 
             style = {styles.inputBox}
             placeholder = "Your Name"
@@ -34,6 +34,7 @@ export default class Welcome extends Component {
                 phone: text
               })
             }/>
+            <Text style={styles.text}>Enter your Phone no. here</Text>
         <TextInput 
             style = {styles.inputBox}
             placeholder = "Phone number"
@@ -58,15 +59,19 @@ export default class Welcome extends Component {
             onPress = {()=> {this.createAProfile}}>
             <Text style = {{fontSize:22}}>Submit</Text>
         </TouchableOpacity>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   text: {
     textAlign: 'center',
     fontSize: 22,
-    padding: 20,
+    padding: 10,
   },
   inputBox: {
     alignSelf: 'center',
@@ -80,7 +85,7 @@ const styles = StyleSheet.create({
   submitButton:{
       alignSelf:'center',
       padding:10,
-      marginTop:10,
+      margin:10,
       backgroundColor:'rgb(255, 255, 0)',
   }
 })
