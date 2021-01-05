@@ -41,8 +41,7 @@ export default class Welcome extends Component {
         />
         <TouchableOpacity 
             style = {styles.submitButton}
-            onPress = {()=> {this.showCardNoInput}}
-            >
+            onPress = {()=> {this.showCardNoInput}}>
             <Text style = {{fontSize:22}}>Submit</Text>
         </TouchableOpacity>
       </View>
