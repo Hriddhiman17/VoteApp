@@ -9,26 +9,7 @@ export default class Welcome extends Component {
       phone : '',
     }
   }
-  render() {
-    return (
-      <View>
-        <Header/>
-        <Text style={styles.text}>Welcome to the Vote App. Please Enter your phone no. here </Text>
-        <TextInput 
-            style = {styles.inputBox}
-            placeholder = "Phone number"
-            onChangeText = {text=>
-              this.setState({
-                phone: text
-              })
-            }
-        />
-        <TouchableOpacity 
-            style = {styles.submitButton}>
-            <Text style = {{fontSize:22}}>Submit</Text>
-        </TouchableOpacity>
-      </View>
-    );
+  showCardNoInput(){
     if(this.state.phone.length === 10){
       return(
         <View>
@@ -42,6 +23,30 @@ export default class Welcome extends Component {
         </View>
       )
     }
+  }
+  render() {
+    return (
+      <View>
+        <Header/>
+        <Text style={styles.text}>Welcome to the Vote App. Please Enter your phone no. here </Text>
+        <TextInput 
+            style = {styles.inputBox}
+            placeholder = "Phone number"
+            keyboardType= "numeric"
+            onChangeText = {text=>
+              this.setState({
+                phone: text
+              })
+            }
+        />
+        <TouchableOpacity 
+            style = {styles.submitButton}
+            onPress = {()=> {this.showCardNoInput}}
+            >
+            <Text style = {{fontSize:22}}>Submit</Text>
+        </TouchableOpacity>
+      </View>
+    );
   }
 }
 const styles = StyleSheet.create({
