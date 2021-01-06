@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {View, Text, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import Header from '../components/AppHeader';
-import db from '../config';
-import firebase from 'firebase';
+// import db from '../config';
 
 export default class Welcome extends Component {
   constructor(){
@@ -12,15 +11,17 @@ export default class Welcome extends Component {
       card: '',
     }
   }
-  createAProfile(){
-    db.collection("voters").set({
-      'Phone': this.state.phone,
-      'CardNumber': this.state.card,
-    })
-  }
+  // createAProfile(){
+  //   db.collection("voters").doc(this.state.phone).set({
+  //     'Phone': this.state.phone,
+  //   })
+  //   db.collection("voters").doc(this.state.card).set({
+  //     'CardNumber': this.state.card,
+  //   })
+  // }
   render() {
     return (
-      <KeyboardAvoidingView behavior="padding" enabled>
+      <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
         <Header/>
         <Text style={styles.text}>Hello and welcome to the Vote From Home App. This App would help to make your vote easy, safe, and from home.</Text>
         <Text style={styles.text}>Enter your Name here-</Text>
@@ -63,6 +64,10 @@ export default class Welcome extends Component {
   }
 }
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   text: {
     textAlign: 'center',
     fontSize: 22,
