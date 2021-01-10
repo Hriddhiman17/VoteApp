@@ -20,7 +20,7 @@ export default class Welcome extends Component {
         'CardNumber': this.state.card,
       })
     }else{
-      ToastAndroid.show('Please enter a valid voter card no. and a valid Phone no. !!', ToastAndroid.SHORT);
+      ToastAndroid.show('Please enter a valid voter card no. or a valid Phone no. !!', ToastAndroid.SHORT);
     }
   }
 
@@ -54,6 +54,8 @@ export default class Welcome extends Component {
             onPress = {()=> {this.createAProfile}}>
             <Text style = {{fontSize:22}}>Submit</Text>
         </TouchableOpacity>
+        <Text>{this.state.phone}</Text>
+        <Text>{this.state.card}</Text>
       </KeyboardAvoidingView>
     );
   }
