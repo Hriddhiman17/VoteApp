@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {View, Text, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, ToastAndroid} from 'react-native';
 import Header from '../components/AppHeader';
 import db from '../config';
+import { MDBBtn } from "mdbreact";
 
 export default class Welcome extends Component {
   constructor(){
@@ -28,9 +29,9 @@ export default class Welcome extends Component {
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
         <Header/>
-        <Text style={styles.text}>Hello and welcome to the Vote From Home App. This App would help to make your vote easy, safe, and from home.</Text>
+        <Text style={[styles.text, {marginTop: 75}]}>Hello and welcome to the Vote From Home App. This App would help to make your vote easy, safe, and from home.</Text>
             <Text style={styles.text}>Enter your Phone no. here</Text>
-        <TextInput 
+        <TextInput
             style = {styles.inputBox}
             placeholder = "Phone number"
             keyboardType= "numeric"
@@ -39,7 +40,7 @@ export default class Welcome extends Component {
                 phone: text
               })
             }/>
-        <Text style={styles.text}>Enter your card no. here-</Text>
+        <Text style={[styles.text, {marginTop: 15}]}>Enter your card no. here-</Text>
         <TextInput
             style = {styles.inputBox}
             placeholder = "Card number"
@@ -49,13 +50,12 @@ export default class Welcome extends Component {
                 card: text
               })
             }/>
+            <MDBBtn gradient="purple">Submit</MDBBtn>
         <TouchableOpacity
             style = {styles.submitButton}
             onPress = {()=> {this.createAProfile}}>
             <Text style = {{fontSize:22}}>Submit</Text>
         </TouchableOpacity>
-        <Text>{this.state.phone}</Text>
-        <Text>{this.state.card}</Text>
       </KeyboardAvoidingView>
     );
   }
@@ -76,12 +76,12 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     fontSize: 20,
     paddingLeft: 15,
-    marginTop: 25
   },
   submitButton:{
       alignSelf:'center',
       padding:10,
-      margin:10,
+      marginTop:10,
+      height: 50,
       backgroundColor:'rgb(255, 255, 0)',
   }
 })
