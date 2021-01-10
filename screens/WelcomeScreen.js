@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {View, Text, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, ToastAndroid} from 'react-native';
 import Header from '../components/AppHeader';
 import db from '../config';
-import { MDBBtn } from "mdbreact";
 
 export default class Welcome extends Component {
   constructor(){
@@ -50,7 +49,6 @@ export default class Welcome extends Component {
                 card: text
               })
             }/>
-            <MDBBtn gradient="purple">Submit</MDBBtn>
         <TouchableOpacity
             style = {styles.submitButton}
             onPress = {()=> {this.createAProfile}}>
