@@ -12,6 +12,3 @@ export default class Welcome extends Component {
     );
   }
 }
-const styles = StyleSheet.create({
-
-})
