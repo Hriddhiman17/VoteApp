@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, Text, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, ToastAndroid} from 'react-native';
+import {View, Text, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, ToastAndroid, ScrollView, Switch} from 'react-native';
 import Header from '../components/AppHeader';
 import db from '../config';
 
@@ -26,9 +26,10 @@ export default class Welcome extends Component {
 
   render() {
     return (
+      <ScrollView>
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
         <Header/>
-        <Text style={[styles.text, {marginTop: 75}]}>Hello and welcome to the Vote From Home App. This App would help to make your vote easy, safe, and from home.</Text>
+        <Text style={[styles.text, {marginTop: 25}]}>Hello and welcome to the Vote From Home App. This App would help to make your vote easy, safe, and from home.</Text>
             <Text style={styles.text}>Enter your Phone no. here</Text>
         <TextInput
             style = {styles.inputBox}
@@ -55,6 +56,7 @@ export default class Welcome extends Component {
             <Text style = {{fontSize:22}}>Submit</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
+      </ScrollView>
     );
   }
 }
