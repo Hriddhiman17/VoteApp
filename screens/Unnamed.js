@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import Header from '../components/AppHeader';
 
-export default class CardNo extends Component {
+export default class Unnamed extends Component {
   render() {
     return (
       <View>

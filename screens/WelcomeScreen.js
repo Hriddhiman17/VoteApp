@@ -8,19 +8,23 @@ export default class Welcome extends Component {
     super();
     this.state = {
       phone: '',
-      card: '',
+      Vcard: '',
+      Acard: '',
     }
   }
   createAProfile(){
-    if(this.state.card.length === 10 && this.state.phone.length === 10){
+    if(this.state.Vcard.length === 10 && this.state.phone.length === 10 && this.state.Acard.length === 12){
       db.collection("voters").doc(this.state.phone).set({
         'Phone': this.state.phone,
       })
-      db.collection("voters").doc(this.state.card).set({
-        'CardNumber': this.state.card,
+      db.collection("voters").doc(this.state.Vcard).set({
+        'VoterCardNumber': this.state.Vcard,
+      })
+      db.collection("voters").doc(this.state.Acard).set({
+        'AadhaarCardNumber': this.state.Acard,
       })
     }else{
-      ToastAndroid.show('Please enter a valid voter card no. or a valid Phone no. !!', ToastAndroid.SHORT);
+      
     }
   }
 
@@ -40,19 +44,29 @@ export default class Welcome extends Component {
                 phone: text
               })
             }/>
-        <Text style={[styles.text, {marginTop: 15}]}>Enter your card no. here-</Text>
+        <Text style={[styles.text, {marginTop: 15}]}>Enter your voter card no. here-</Text>
         <TextInput
             style = {styles.inputBox}
             placeholder = "Card number"
             keyboardType= "numeric"
             onChangeText = {text=>
               this.setState({
-                card: text
+                Vcard: text
+              })
+            }/>
+          <Text style={[styles.text, {marginTop: 15}]}>Enter your aadhaar card no. here</Text>
+        <TextInput
+            style = {styles.inputBox}
+            placeholder = "Card number"
+            keyboardType= "numeric"
+            onChangeText = {text=>
+              this.setState({
+                Acard: text
               })
             }/>
         <TouchableOpacity
             style = {styles.submitButton}
-            onPress = {()=> {this.createAProfile}}>
+            onPress = {()=>this.props.navigation.navigate('HomeScreen')}>
             <Text style = {{fontSize:22}}>Submit</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
