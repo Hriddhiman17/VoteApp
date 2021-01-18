@@ -37,7 +37,7 @@ export default class Welcome extends Component {
             <Text style={styles.text}>Enter your Phone no. here</Text>
         <TextInput
             style = {styles.inputBox}
-            placeholder = "Phone number"
+            placeholder = "Phone Number"
             keyboardType= "numeric"
             onChangeText = {text=>
               this.setState({
@@ -47,7 +47,7 @@ export default class Welcome extends Component {
         <Text style={[styles.text, {marginTop: 15}]}>Enter your voter card no. here-</Text>
         <TextInput
             style = {styles.inputBox}
-            placeholder = "Card number"
+            placeholder = "Voter Card Number"
             keyboardType= "numeric"
             onChangeText = {text=>
               this.setState({
@@ -57,7 +57,7 @@ export default class Welcome extends Component {
           <Text style={[styles.text, {marginTop: 15}]}>Enter your aadhaar card no. here</Text>
         <TextInput
             style = {styles.inputBox}
-            placeholder = "Card number"
+            placeholder = "Aadhaar Card Number"
             keyboardType= "numeric"
             onChangeText = {text=>
               this.setState({

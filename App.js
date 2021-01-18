@@ -10,22 +10,15 @@ export default class App extends Component {
   render(){
     return (
       <View>
-        <HomeAppContainer/>
+        <AppContainer/>
       </View>
     );
   }
 }
-var HomeAppNavigator = createSwitchNavigator({
+var AppNavigator = createSwitchNavigator({
+  LoginScreen:Login,
   HomeScreen: Home,
   SettingsScreen: Settings,
 });
 
-const HomeAppContainer = createAppContainer(HomeAppNavigator);
-
-const switchNavigator = createSwitchNavigator({
-  LoginScreen:Login,
-  HomeAppNavigator:HomeAppNavigator
-})
-  
-const AppContainer =  createAppContainer(switchNavigator);
-  
+const AppContainer = createAppContainer(AppNavigator);
