@@ -33,6 +33,15 @@ export default class Settings extends Component {
               name: text
             })
           }/>
+        <TextInput
+          style = {styles.inputBox}
+          placeholder = "Your Phone"
+          keyboardType = 'numeric'
+          onChangeText = {text=>
+            this.setState({
+              phone: text
+            })
+          }/>
           <TouchableOpacity style = {styles.updateButton}>
             <Text style = {styles.updateButtonText}>Update<Image style = {styles.imageIcon}source={require('../assets/rightArrow.png')} /></Text>
           </TouchableOpacity>
